@@ -30,6 +30,15 @@ public class HelloControllerIntegrationTest {
 	}
 
 	@Test
+	public void sayHello_withName() throws Exception {
+		mockMvc.perform(
+				get("/hello").param("name", "Hi"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("hello"))
+				.andExpect(model().attribute("user", "Hi"));
+	}
+
+	@Test
 	public void sayHello_withoutName() throws Exception {
 		mockMvc.perform(
 				get("/hello"))

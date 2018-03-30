@@ -1,1 +1,3 @@
 rootProject.name = 'hello'
+
+include "spring-data-example"
