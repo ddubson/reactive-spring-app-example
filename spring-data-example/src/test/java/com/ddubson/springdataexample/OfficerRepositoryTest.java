@@ -39,7 +39,7 @@ public class OfficerRepositoryTest {
 	public void findOneTest() {
 		jdbcTemplate.query("select id from officers", (rs, num) -> rs.getInt("id"))
 		.forEach((Integer id) -> {
-			Officer officer = officerRepository.findOne(id);
+			Officer officer = officerRepository.getOne(id);
 			assertNotNull(officer);
 			assertEquals(id, officer.getId());
 		});
